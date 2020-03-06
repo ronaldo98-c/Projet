@@ -1,0 +1,41 @@
+<div class="col-lg-8 col-sm-8 col-xs-8 col-md-8">
+    <div *ngIf="listes">
+        <div class="row"><h1 class="col-lg-1 col-xs-1 col-md-1 col-sm-1">{{listes.name}}</h1></div>
+        <div class="row"><h1 class="col-lg-1 col-xs-1 col-md-1 col-sm-1" style="position: absolute;left: 500px;top:110px;" (click)="onShow()">{{listes.main.temp}}Kelvin</h1></div>
+        <div class="row"><h2 class="col-lg-1 col-xs-1 col-md-1 col-sm-1">{{jours}}</h2></div>
+        <div class="row"><h3 class="col-lg-1 col-xs-1 col-md-1 col-sm-1">{{dateEntiere}}</h3></div>
+        <img src="http://openweathermap.org/img/wn/{{listes.weather[0].icon}}@2x.png" class="col-lg-5 col-xs-5 col-md-5 col-sm-5" alt="" style="width:400px;height: 400px; position: absolute;left: 180px;top:30px;">
+        <div class="row"> <h1 class="col-lg-7 col-xs-7 col-md-7 col-sm-7" style="position: absolute;left: 200px;top: 310px;">PARTLY CLOUD</h1></div>
+   </div>
+   <div *ngIf="infoSupplementaires">
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1">Pressure:{{infoSupplementaires.main.pressure}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1">Humidity:{{infoSupplementaires.main.humidity}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 380px;">Sunrise:{{infoSupplementaires.sys.sunrise}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 410px;">Sunset:{{infoSupplementaires.sys.sunset}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 440px;">clouds:{{infoSupplementaires.clouds.all}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 380px; left:300px">Lon:{{infoSupplementaires.coord.lon}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 410px; left:300px;">Lat:{{infoSupplementaires.coord.lat}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 380px; left:500px">speed:{{infoSupplementaires.wind.speed}}</h3></div>
+       <div class="row"><h3 class="col-lg-1 col-sm-1 col-xs-1 col-md-1" style="position: absolute;top: 410px; left:500px;">Deg:{{infoSupplementaires.wind.deg}}</h3></div>
+   </div>
+</div> 
+<div class="col-lg-offset-1 col-lg-3 col-sm-3 col-xs-3 col-md-3">
+   <div style="position: absolute;" class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+      <div *ngFor="let j of jourSuivant">
+       <div style="font-size: 15px; position: relative; top:20px;left: -30px; padding: 30px;">{{j}}</div><br>
+      </div>
+    </div>
+   <div style="position: absolute;" class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+      <div *ngFor="let info of infos">
+         <div style="font-size: 15px; position: relative; top:10px;left:150px;padding: 40px;">{{info.main.temp}}K</div>
+      </div>
+   </div>
+   <div style="position: absolute;" class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+      <div *ngFor="let info of infos">
+         <div style="font-size: 10px; position: relative; top:10px;left:75px;"><img src="http://openweathermap.org/img/wn/{{info.weather[0].icon}}@2x.png" alt=""></div>
+      </div>
+   </div>
+</div>
+
+
+
